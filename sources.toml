@@ -1,0 +1,30 @@
+[plex-mono]
+revision = "2e90fe366fdc27c12682db13e5aa20ded3d90908"
+url = "https://raw.githubusercontent.com/IBM/plex/{revision}/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-{style}.ttf"
+license = "https://raw.githubusercontent.com/IBM/plex/{revision}/packages/plex-mono/LICENSE.txt"
+
+[plex-sans]
+revision = "2e90fe366fdc27c12682db13e5aa20ded3d90908"
+url = "https://raw.githubusercontent.com/IBM/plex/{revision}/packages/plex-sans-{region_lower}/fonts/complete/ttf/unhinted/IBMPlexSans{region}-{weight}.ttf"
+license = "https://raw.githubusercontent.com/IBM/plex/{revision}/packages/plex-sans-jp/LICENSE.txt"
+
+[plex-math]
+revision = "2e90fe366fdc27c12682db13e5aa20ded3d90908"
+url = "https://raw.githubusercontent.com/IBM/plex/{revision}/packages/plex-math/fonts/complete/ttf/IBMPlexMath-Regular.ttf"
+license = "https://raw.githubusercontent.com/IBM/plex/{revision}/packages/plex-math/LICENSE.txt"
+
+[noto-sans-mono]
+revision = "06bfe0d62a98375cb09c942fa18e68bd32cff057"
+url = "https://raw.githubusercontent.com/google/fonts/{revision}/ofl/notosansmono/NotoSansMono%5Bwdth%2Cwght%5D.ttf"
+license = "https://raw.githubusercontent.com/google/fonts/{revision}/ofl/notosansmono/OFL.txt"
+
+[jetbrains-mono]
+revision = "v2.304"
+url = "https://raw.githubusercontent.com/JetBrains/JetBrainsMono/{revision}/fonts/variable/JetBrainsMono%5Bwght%5D.ttf"
+italic-url = "https://raw.githubusercontent.com/JetBrains/JetBrainsMono/{revision}/fonts/variable/JetBrainsMono-Italic%5Bwght%5D.ttf"
+license = "https://raw.githubusercontent.com/JetBrains/JetBrainsMono/{revision}/OFL.txt"
+
+[nerd-fonts]
+revision = "v3.5.1"
+url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{revision}/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf"
+license = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{revision}/patched-fonts/NerdFontsSymbolsOnly/LICENSE"

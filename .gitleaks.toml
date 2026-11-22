@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Generated and downloaded artifacts that are not committed"
+paths = ['''^build/''', '''^sources/''', '''^\.venv/''', '''\.ruff_cache/''', '''\.pytest_cache/''']

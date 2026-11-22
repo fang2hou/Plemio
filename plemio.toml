@@ -1,0 +1,116 @@
+exclude = ["274C"]
+
+[family]
+name = "Plemio"
+version = "0.1.0"
+vendor-id = "PLMO"
+copyright = "Copyright 2026 Zhou Fang (https://github.com/fang2hou/Plemio)"
+designer = "Zhou Fang"
+url = "https://github.com/fang2hou/Plemio"
+
+[metrics]
+ascender = 1010
+descender = -290
+
+[variants.plemio]
+half-width = 528
+latin-scale = [0.91, 0.97]
+ambiguous = "wide"
+full-width-line-art = true
+cjk-over-latin = [
+    "2014-2015", "2025-2026", "2030", "203B", "203E", "2116", "2121",
+    "2190-2193", "2196-2199", "21C4-21C6", "21D2", "21D4", "21E6-21E9", "21F5",
+]
+
+[variants.nerd]
+label = "Nerd"
+half-width = 600
+ambiguous = "narrow"
+nerd-fonts = true
+visible-ideographic-space = true
+
+[cjk]
+scale = 1.0
+y-offset = -20
+y-offset-exempt = [
+    "1100-11FF", "302E-302F", "3130-318F", "3200-321E", "3260-327F",
+    "A960-A97F", "AC00-D7A3", "D7B0-D7FB", "FFA0-FFDC",
+]
+ink-margin = 60
+squeeze-aspect = 1.35
+preferred = ["0370-03FF"]
+
+[[cjk.nudges]]
+codepoints = ["FF08", "FF3B", "FF5B"]
+x = -180
+
+[[cjk.nudges]]
+codepoints = ["FF09", "FF3D", "FF5D"]
+x = 180
+
+[line-art]
+block-overhang = 50
+
+[nerd-fonts]
+source = "nerd-fonts"
+icon-scale = 1.0
+icon-center-y = 342
+cell-ranges = ["E0B0-E0D7"]
+cell-reference = "\uE0B0"
+
+[ideographic-space]
+center-y = 389
+size = 0.69
+stroke = 44
+dash-ratio = 0.3
+
+[braille]
+enabled = true
+height = 1000
+dot-size = 0.42
+
+[symbols]
+icon-center-y = 349
+operator-center-y = 305
+operators = ["2200-22FF", "27C0-27EF", "2980-2AFF"]
+fixed = ["2320-2321", "239B-23B7", "23BA-23BD"]
+override = ["2211", "222B"]
+ink-margin = 40
+max-height = 620
+stroke-probe = "\u2212"
+emboldened = [{ codepoint = "2714", source = "2713", stroke-ratio = 1.8 }]
+
+[[supplements]]
+source = "plex-math"
+fit = "proportional"
+
+[[supplements]]
+source = "noto-sans-mono"
+axes = { wdth = 100 }
+
+[[supplements]]
+source = "jetbrains-mono"
+
+[regions.SC]
+fallback = ["JP", "TC", "KR"]
+script = "Hans"
+code-pages = [0, 18]
+localized = { zh-CN = "简体中文", zh-TW = "簡體中文", ja = "簡体字中国語", ko = "중국어 간체" }
+
+[regions.TC]
+fallback = ["SC", "JP", "KR"]
+script = "Hant"
+code-pages = [0, 20]
+localized = { zh-CN = "繁体中文", zh-TW = "繁體中文", ja = "繁体字中国語", ko = "중국어 번체" }
+
+[regions.JP]
+fallback = ["SC", "TC", "KR"]
+script = "Jpan"
+code-pages = [0, 17]
+localized = { zh-CN = "日文", zh-TW = "日文", ja = "日本語", ko = "일본어" }
+
+[regions.KR]
+fallback = ["JP", "SC", "TC"]
+script = "Kore"
+code-pages = [0, 19, 21]
+localized = { zh-CN = "韩文", zh-TW = "韓文", ja = "韓国語", ko = "한국어" }

@@ -1,0 +1,10 @@
+* -linguist-detectable
+src/** linguist-detectable
+tests/** linguist-detectable
+*.md linguist-detectable
+*.toml -linguist-detectable
+*.json -linguist-detectable
+*.yml -linguist-detectable
+*.png -linguist-detectable
+uv.lock linguist-generated
+sources.lock linguist-generated

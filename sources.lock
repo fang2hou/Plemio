@@ -1,0 +1,238 @@
+{
+  "sources/jetbrains-mono/JetBrainsMono-Italic[wght].ttf": {
+    "url": "https://raw.githubusercontent.com/JetBrains/JetBrainsMono/v2.304/fonts/variable/JetBrainsMono-Italic%5Bwght%5D.ttf",
+    "sha256": "f115aaa12113718c02ce72864fe6823b87241bc23d3e44cf1220155f861063f2"
+  },
+  "sources/jetbrains-mono/JetBrainsMono[wght].ttf": {
+    "url": "https://raw.githubusercontent.com/JetBrains/JetBrainsMono/v2.304/fonts/variable/JetBrainsMono%5Bwght%5D.ttf",
+    "sha256": "662a196d58f1183bf2d77428b6d5283fe3f45161ab021bea4036bc98e5cac016"
+  },
+  "sources/jetbrains-mono/OFL.txt": {
+    "url": "https://raw.githubusercontent.com/JetBrains/JetBrainsMono/v2.304/OFL.txt",
+    "sha256": "30f0c136e3c88e422d0791acd97238870f9054a9729bc34cf2ff0d4ed8cac4ad"
+  },
+  "sources/nerd-fonts/LICENSE": {
+    "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/NerdFontsSymbolsOnly/LICENSE",
+    "sha256": "84a7a98c82140fb12c37fe42b93805baa16024cb3e5acc599b7ffe612c55d847"
+  },
+  "sources/nerd-fonts/SymbolsNerdFont-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.5.1/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf",
+    "sha256": "2839f0a572d4559f3f17a6fb74b8772e183f0c0a47150998ab194932cad55829"
+  },
+  "sources/noto-sans-mono/NotoSansMono[wdth,wght].ttf": {
+    "url": "https://raw.githubusercontent.com/google/fonts/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosansmono/NotoSansMono%5Bwdth%2Cwght%5D.ttf",
+    "sha256": "2cb2adb378a8f574213e23df697050b83c54c27df465a2015552740b2769a081"
+  },
+  "sources/noto-sans-mono/OFL.txt": {
+    "url": "https://raw.githubusercontent.com/google/fonts/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosansmono/OFL.txt",
+    "sha256": "cee9892f9f0cc8fe882c9e9537ee6a89621d86ee7ceaf70b02e2b2b1c25c061a"
+  },
+  "sources/plex-math/IBMPlexMath-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-math/fonts/complete/ttf/IBMPlexMath-Regular.ttf",
+    "sha256": "10d07a23cb322725f83ca51748a4c7a61cf14caf2c4d880d793c65d3a1402533"
+  },
+  "sources/plex-math/LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-math/LICENSE.txt",
+    "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+  },
+  "sources/plex-mono/IBMPlexMono-Bold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Bold.ttf",
+    "sha256": "74e5eedcfa4596497d34e19023cabdabd3a8c852b903007a5654a59591a72ffb"
+  },
+  "sources/plex-mono/IBMPlexMono-BoldItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-BoldItalic.ttf",
+    "sha256": "c8b00068fd2fd69bbcf62059148623f09d19e9ada8bf9e8caf1aedd01347046a"
+  },
+  "sources/plex-mono/IBMPlexMono-ExtraLight.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-ExtraLight.ttf",
+    "sha256": "4b6acddc27bf7b98c5d28764d0617fc76b7f34c403583145237356e738327c54"
+  },
+  "sources/plex-mono/IBMPlexMono-ExtraLightItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-ExtraLightItalic.ttf",
+    "sha256": "cd88e7df6e06b14bce0ce8a4b4530cc6791e3d27e8b6955bf553158200559f02"
+  },
+  "sources/plex-mono/IBMPlexMono-Italic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Italic.ttf",
+    "sha256": "a55368deb953f594ac18336a1029009ed820e2d9abbb57ad601f61e22bec072b"
+  },
+  "sources/plex-mono/IBMPlexMono-Light.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Light.ttf",
+    "sha256": "feca3787130b6e71a0edb1cfc17c2ae7780443888554207a8981de43ef755d36"
+  },
+  "sources/plex-mono/IBMPlexMono-LightItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-LightItalic.ttf",
+    "sha256": "eaf46dcb971a93849643c9f1249bbaf9abf92d712227ff6ce68ef48dc3df69e6"
+  },
+  "sources/plex-mono/IBMPlexMono-Medium.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Medium.ttf",
+    "sha256": "98fbd727aae340b236955879dabed4d991aac9e8e90b3b2a67ce4a59221cc97c"
+  },
+  "sources/plex-mono/IBMPlexMono-MediumItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-MediumItalic.ttf",
+    "sha256": "100852349a441076bb03aca3a3c7786eaf5d59a91dca3e4677ee8337805817fb"
+  },
+  "sources/plex-mono/IBMPlexMono-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Regular.ttf",
+    "sha256": "7c6fbddca4b700be918f5f6183d9bd4464fa427fe435f0b480d77fe2bb8c5a43"
+  },
+  "sources/plex-mono/IBMPlexMono-SemiBold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-SemiBold.ttf",
+    "sha256": "f04d7c488ddf7d1fa99f2574efc3406ea4cbe17bb1af3a1ab960f84d0c96a172"
+  },
+  "sources/plex-mono/IBMPlexMono-SemiBoldItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-SemiBoldItalic.ttf",
+    "sha256": "d2039ddfa9236d642fafae5aa46446c54eb7961b3771a1ca3e9bba960172b9bb"
+  },
+  "sources/plex-mono/IBMPlexMono-Text.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Text.ttf",
+    "sha256": "bb43e352f1d4aeedfd9e2e33449660a2b9473010d57a6013ceff976242ea5456"
+  },
+  "sources/plex-mono/IBMPlexMono-TextItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-TextItalic.ttf",
+    "sha256": "bdfc5b6ea2ffba1880313c73773630c85fa3a6e56d7f7a777da52702e7d65532"
+  },
+  "sources/plex-mono/IBMPlexMono-Thin.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-Thin.ttf",
+    "sha256": "171c32cbb133646b6d5e16d0ffbbd39f1ade134932d8a21cefc61e1669fd072e"
+  },
+  "sources/plex-mono/IBMPlexMono-ThinItalic.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/fonts/complete/ttf/IBMPlexMono-ThinItalic.ttf",
+    "sha256": "9bb7624f34ec3f7443ce1189b94f0c4321360c6beb846f4bc618daa194ce5ed3"
+  },
+  "sources/plex-mono/LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-mono/LICENSE.txt",
+    "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+  },
+  "sources/plex-sans/IBMPlexSansJP-Bold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-Bold.ttf",
+    "sha256": "070c08915b21a9484e31a73594e4aae69991e4477959a96a6ab4031f4e30ec9f"
+  },
+  "sources/plex-sans/IBMPlexSansJP-ExtraLight.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-ExtraLight.ttf",
+    "sha256": "40ed45b01a733c0c797017a9b5498a4a4d05cdb3beb09eb78010dc7d74a1555f"
+  },
+  "sources/plex-sans/IBMPlexSansJP-Light.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-Light.ttf",
+    "sha256": "6d265357c213600e1f129b5662d474b266a163564205cbdb8e0bb9b0fc2b5c70"
+  },
+  "sources/plex-sans/IBMPlexSansJP-Medium.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-Medium.ttf",
+    "sha256": "ed9257c94b0a540bac56a0faa70ec554b18ea7271fa4f0d33512583dd4bf9c0c"
+  },
+  "sources/plex-sans/IBMPlexSansJP-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-Regular.ttf",
+    "sha256": "0168493ae143d16e4c0d374c090b1ee5eab9ee475536d2e429368dbcfc4a6abe"
+  },
+  "sources/plex-sans/IBMPlexSansJP-SemiBold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-SemiBold.ttf",
+    "sha256": "3ae17af73062926b013afdec8949923a8adfd4ec8c4f689876c0a359e63e4ceb"
+  },
+  "sources/plex-sans/IBMPlexSansJP-Text.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-Text.ttf",
+    "sha256": "34d906500faca7a7995eddc5171ef2b04813bc809b7125d8525ca54ea2a5cb60"
+  },
+  "sources/plex-sans/IBMPlexSansJP-Thin.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/fonts/complete/ttf/unhinted/IBMPlexSansJP-Thin.ttf",
+    "sha256": "aa28c0a68a8040c7082a85d34b1fef0e31d726cfc904db1ac542b349797a71e9"
+  },
+  "sources/plex-sans/IBMPlexSansKR-Bold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-Bold.ttf",
+    "sha256": "bbb3bfaf5fb2ca4114d5f12ed52baf17ced45230c9736538fd630dcaf69bfcc9"
+  },
+  "sources/plex-sans/IBMPlexSansKR-ExtraLight.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-ExtraLight.ttf",
+    "sha256": "3a12592023a71a3af64c0dee2d070633b9e6e5c9d0fc0751c7faef056709dd3f"
+  },
+  "sources/plex-sans/IBMPlexSansKR-Light.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-Light.ttf",
+    "sha256": "968fb1aca77409b8b6e87df2baa68d16bee96c495d923637065902495a7f1248"
+  },
+  "sources/plex-sans/IBMPlexSansKR-Medium.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-Medium.ttf",
+    "sha256": "284c2b2c470791f3eaf6fd3c93f1aa95d5bd4bb42a14b9754375d839a91d8a50"
+  },
+  "sources/plex-sans/IBMPlexSansKR-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-Regular.ttf",
+    "sha256": "9b9a2fd392af19b1bd6535fb506e4f4a80bfc23f5421b1772983502394ade125"
+  },
+  "sources/plex-sans/IBMPlexSansKR-SemiBold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-SemiBold.ttf",
+    "sha256": "c957e30a0744bd98d1f7e8c19ee7fcd3740ab59a92e4d9b8168a82eda91d25ea"
+  },
+  "sources/plex-sans/IBMPlexSansKR-Text.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-Text.ttf",
+    "sha256": "30896c61a122d65e51edbcca895c8041cbeda961f034a2ed90af90d2ba28fbb1"
+  },
+  "sources/plex-sans/IBMPlexSansKR-Thin.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-kr/fonts/complete/ttf/unhinted/IBMPlexSansKR-Thin.ttf",
+    "sha256": "9d876b4ef6f13f087d863114c8910f33f5219ea6134e9e50834a02fe33b3e9a7"
+  },
+  "sources/plex-sans/IBMPlexSansSC-Bold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-Bold.ttf",
+    "sha256": "69cbafb94234ac6716c3aa8d3d4d3308fb63f4e8ba9dac2418caed5ea83ac6fa"
+  },
+  "sources/plex-sans/IBMPlexSansSC-ExtraLight.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-ExtraLight.ttf",
+    "sha256": "bd11066d0a8f6c905447e0982741a4c68392b03eb201aedc630ed93b3e731b6c"
+  },
+  "sources/plex-sans/IBMPlexSansSC-Light.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-Light.ttf",
+    "sha256": "19f3890e1ad75f6d2d306506bbf19da552d171dd9c78263b333753390183e5af"
+  },
+  "sources/plex-sans/IBMPlexSansSC-Medium.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-Medium.ttf",
+    "sha256": "f0ad0657dbe52d6524027be62f07a2de767742cd8cab28e82c672ba206342bdb"
+  },
+  "sources/plex-sans/IBMPlexSansSC-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-Regular.ttf",
+    "sha256": "0b8b5c398c3198ec8932f3d3eb5eea0b3e7ff4f6cb5b84fcde180ad890094d5e"
+  },
+  "sources/plex-sans/IBMPlexSansSC-SemiBold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-SemiBold.ttf",
+    "sha256": "a785ab071ae8d75865c8aa9adc74fe6e5af67a9ba7cff76ca533dafba8cb7b2d"
+  },
+  "sources/plex-sans/IBMPlexSansSC-Text.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-Text.ttf",
+    "sha256": "34fa9d2e0d11cd80b23f00906e1d35bc8a6911aeffb81dec8ecf6a89e2c555ae"
+  },
+  "sources/plex-sans/IBMPlexSansSC-Thin.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-sc/fonts/complete/ttf/unhinted/IBMPlexSansSC-Thin.ttf",
+    "sha256": "5677fe86a25d03fdb643ba512eb7a7fcbf0bbecd7f4af8a73010f80da7273a55"
+  },
+  "sources/plex-sans/IBMPlexSansTC-Bold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-Bold.ttf",
+    "sha256": "eb1f3d7a98e408a76f70bfa885595d017eb9a60085d16aa978cda87d557fb33c"
+  },
+  "sources/plex-sans/IBMPlexSansTC-ExtraLight.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-ExtraLight.ttf",
+    "sha256": "ae9f1edc9c1323ff15e2c16b938d9372ef14b57dbcb0576ecaab5a5e4953fd02"
+  },
+  "sources/plex-sans/IBMPlexSansTC-Light.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-Light.ttf",
+    "sha256": "02647842fca32713136597105e02a627b9f6f136dd28f8b668013b005552ebbd"
+  },
+  "sources/plex-sans/IBMPlexSansTC-Medium.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-Medium.ttf",
+    "sha256": "6a74031e333349062e2d5259ad53ebaf2eaf765f16099c4d251f4e2810a6de17"
+  },
+  "sources/plex-sans/IBMPlexSansTC-Regular.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-Regular.ttf",
+    "sha256": "a411899a70de84a29b726c9abf7d34166d5a49f4807abc7aabbb037c2fc19451"
+  },
+  "sources/plex-sans/IBMPlexSansTC-SemiBold.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-SemiBold.ttf",
+    "sha256": "6f0b3cd3e45710fcd43f229cb5a3180637ce524a3f294766e46122fdc6dba729"
+  },
+  "sources/plex-sans/IBMPlexSansTC-Text.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-Text.ttf",
+    "sha256": "a0dee1bb30d1609031cab10fda737ac8629e8ac19d4f5b40869ffbd61899c32d"
+  },
+  "sources/plex-sans/IBMPlexSansTC-Thin.ttf": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-tc/fonts/complete/ttf/unhinted/IBMPlexSansTC-Thin.ttf",
+    "sha256": "926c53b660543b40a51653522b6b10fbcf07497d610760ec3da8bb10fdcbc72c"
+  },
+  "sources/plex-sans/LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/IBM/plex/2e90fe366fdc27c12682db13e5aa20ded3d90908/packages/plex-sans-jp/LICENSE.txt",
+    "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+  }
+}

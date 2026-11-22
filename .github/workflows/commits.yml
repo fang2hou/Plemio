@@ -1,0 +1,26 @@
+name: Commits
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  history:
+    name: Validate commit history
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Install toolchain (mise)
+        uses: jdx/mise-action@v5
+      - name: Check commit messages (cog)
+        run: cog check

@@ -1,0 +1,73 @@
+[tools]
+python = "3.12.16"
+uv = "0.13.9"
+node = "26.13.1"
+pnpm = "12.21.0"
+prek = "0.5.11"
+cocogitto = "7.0.0"
+gitleaks = "8.30.1"
+
+[env]
+UV_PYTHON_PREFERENCE = "only-system"
+
+[tasks.sync]
+description = "Install Python dependencies from uv.lock"
+run = "uv sync --locked"
+
+[tasks.setup]
+description = "Install dependencies and git hooks"
+depends = ["sync"]
+run = "prek install --hook-type pre-commit --hook-type commit-msg"
+
+[tasks.lint]
+description = "Lint Python sources"
+run = "uv run ruff check"
+
+[tasks.format]
+description = "Check Python formatting"
+run = "uv run ruff format --check"
+
+[tasks.fix]
+description = "Apply lint fixes and formatting"
+run = ["uv run ruff format", "uv run ruff check --fix"]
+
+[tasks.secrets]
+description = "Scan for committed secrets"
+run = "gitleaks dir --no-banner --redact --config .gitleaks.toml ."
+
+[tasks.check]
+description = "Full validation; run before every commit"
+depends = ["lint", "format", "secrets"]
+
+[tasks.test]
+description = "Run the test suite"
+depends = ["check"]
+run = "uv run pytest"
+
+[tasks.fetch]
+description = "Download pinned upstream fonts and verify sources.lock"
+run = "uv run plemio fetch"
+
+[tasks.build]
+description = "Build fonts into build/fonts"
+run = "uv run plemio build"
+
+[tasks.verify-fonts]
+description = "Check invariants of built fonts"
+run = "uv run plemio check"
+
+[tasks.bundle]
+description = "Pack regional fonts into TTCs"
+run = "uv run plemio bundle"
+
+[tasks.package]
+description = "Package built TTFs, TTCs, and licenses into release archives"
+run = "uv run plemio package"
+
+[tasks.preview]
+description = "Render tuning sheets into build/preview"
+run = "uv run plemio preview"
+
+[tasks.specimen]
+description = "Regenerate README specimen images in docs/images"
+run = "uv run plemio specimen"

@@ -1,0 +1,76 @@
+name: Fonts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build ${{ matrix.variant }} ${{ matrix.region }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [plemio, nerd]
+        region: [SC, TC, JP, KR]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Install toolchain (mise)
+        uses: jdx/mise-action@v5
+      - name: Install dependencies (uv)
+        run: mise run sync
+      - name: Fetch pinned sources
+        run: mise run fetch
+      - name: Build regional fonts
+        env:
+          VARIANT: ${{ matrix.variant }}
+          REGION: ${{ matrix.region }}
+        run: mise run build -- -v "$VARIANT" -r "$REGION" --jobs 4
+      - name: Verify built fonts
+        run: mise run verify-fonts
+      - name: Upload built TTFs
+        uses: actions/upload-artifact@v7
+        with:
+          name: ttf-${{ matrix.variant }}-${{ matrix.region }}
+          path: build/fonts/*.ttf
+          if-no-files-found: error
+          retention-days: 1
+
+  package:
+    name: Bundle and package archives
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Install toolchain (mise)
+        uses: jdx/mise-action@v5
+      - name: Install dependencies (uv)
+        run: mise run sync
+      - name: Fetch source licenses
+        run: mise run fetch
+      - name: Download built TTFs
+        uses: actions/download-artifact@v8
+        with:
+          pattern: ttf-*
+          path: build/fonts
+          merge-multiple: true
+      - name: Bundle TTCs
+        run: mise run bundle
+      - name: Package release archives
+        run: mise run package
+      - name: Upload font archives
+        uses: actions/upload-artifact@v7
+        with:
+          name: plemio-archives
+          path: build/dist/*.zip
+          if-no-files-found: error
