@@ -35,7 +35,7 @@ def _license_entries(config: Config, variant: Variant) -> list[tuple[Path, str]]
 
 def _write_zip(output: Path, files: Iterable[tuple[Path, str]]) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
         for source, arcname in files:
             archive.write(source, arcname)
     return output
