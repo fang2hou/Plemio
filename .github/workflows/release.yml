@@ -62,11 +62,60 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
-  publish:
-    name: Bundle and publish release
+  bundle:
+    name: Bundle ${{ matrix.variant }} ${{ matrix.batch.name }}
     needs: [build]
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [plemio, nerd]
+        batch:
+          - name: upright-light
+            styles: "Thin ExtraLight Light Regular"
+          - name: upright-heavy
+            styles: "Text Medium SemiBold Bold"
+          - name: italic-light
+            styles: "ThinItalic ExtraLightItalic LightItalic Italic"
+          - name: italic-heavy
+            styles: "TextItalic MediumItalic SemiBoldItalic BoldItalic"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Install toolchain (mise)
+        uses: jdx/mise-action@v5
+      - name: Install dependencies (uv)
+        run: mise run sync
+      - name: Download variant TTFs
+        uses: actions/download-artifact@v8
+        with:
+          pattern: ttf-${{ matrix.variant }}-*
+          path: build/fonts
+          merge-multiple: true
+      - name: Bundle TTC batch
+        env:
+          VARIANT: ${{ matrix.variant }}
+          STYLES: ${{ matrix.batch.styles }}
+        run: |
+          args=(-v "$VARIANT")
+          for style in $STYLES; do
+            args+=(-s "$style")
+          done
+          mise run bundle -- "${args[@]}"
+      - name: Upload bundled TTCs
+        uses: actions/upload-artifact@v7
+        with:
+          name: ttc-${{ matrix.variant }}-${{ matrix.batch.name }}
+          path: build/ttc/*.ttc
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    name: Package and publish release
+    needs: [build, bundle]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
     steps:
@@ -84,8 +133,12 @@ jobs:
           pattern: ttf-*
           path: build/fonts
           merge-multiple: true
-      - name: Bundle TTCs
-        run: mise run bundle
+      - name: Download bundled TTCs
+        uses: actions/download-artifact@v8
+        with:
+          pattern: ttc-*
+          path: build/ttc
+          merge-multiple: true
       - name: Package release archives
         run: mise run package
       - name: Create draft GitHub release
