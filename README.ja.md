@@ -9,7 +9,7 @@
 
 </div>
 
-Plemio は、IBM Plex をベースに合成したターミナル、コードエディタ、技術文書向けの等幅プログラミングフォントです。日本語、中国語、韓国語（CJK）の文字と半角英数字を厳密に 2:1 の文字幅比で揃えているため、多言語が混在するコード、コメント、表でも列がきれいに並びます。
+Plemio は、IBM Plex をベースにしたターミナル、コードエディタ、技術文書向けの等幅プログラミングフォントです。日本語、中国語、韓国語（CJK）の文字幅は半角英数字のちょうど 2 倍なので、多言語が混在するコード、コメント、表でも列がそろいます。
 
 <p align="center">
   <img src="./docs/images/jp/editor.png" width="560" alt="コードエディタにおける Plemio JP の 2:1 文字幅揃え表示">
@@ -19,36 +19,36 @@ Plemio は、IBM Plex をベースに合成したターミナル、コードエ�
 
 ### `1` 8 ウェイトとイタリック体
 
-`Thin`（100）から `Bold`（700）までの 8 ウェイトを揃え、長時間の画面閲覧に向く IBM Plex 独自の `Text`（450）も含まれています。すべてのウェイトにイタリック体を用意しており、CJK グリフも IBM Plex Mono Italic と同じ角度で傾斜します。
+`Thin`（100）から `Bold`（700）までの 8 ウェイトで、IBM Plex の `Text`（450）も含みます。すべてのウェイトにイタリック体があり、CJK グリフも IBM Plex Mono Italic と同じ角度で傾きます。
 
 <p align="center">
   <img src="./docs/images/jp/weights.png" width="640" alt="8 ウェイトの立体とイタリック体一覧">
 </p>
 
-### `2` 用途に応じた 2 つのシリーズ
+### `2` エディタ向けとターミナル向けの 2 シリーズ
 
-エディタとターミナルでは East Asian Ambiguous（曖昧幅）記号の扱いが異なるため、Plemio は 2 つのシリーズを提供しています。**Plemio** シリーズは欧文をわずかに細めに収めつつ和文句読点や矢印、罫線を全角幅に保ち、エディタや文書執筆に向きます。**Plemio Nerd** シリーズは IBM Plex Mono の字幅をそのまま保ち、ターミナルの `wcwidth` に合わせて記号の重なりやズレを防ぎながら Nerd Fonts アイコンを内蔵しています。
+- **Plemio**（エディタ・文書向け）：欧文をやや細めに収め、和文句読点、矢印、罫線は全角幅です。
+- **Plemio Nerd**（ターミナル向け）：IBM Plex Mono の字幅をそのまま使い、曖昧幅の記号はターミナルに合わせて半角にしています。Nerd Fonts アイコンも収録しています。
 
 <p align="center">
   <img src="./docs/images/jp/families.png" width="600" alt="Plemio と Plemio Nerd の 2 シリーズ比較">
 </p>
 
-### `3` ターミナル向け Nerd アイコンと記号類
+### `3` ターミナル向けのアイコンと記号
 
-プロンプトや TUI ツール向けに、**Plemio Nerd** は Nerd Fonts アイコンと継ぎ目のない Powerline セパレータを収録しています。隙間なくつながる罫線文字やシェードブロック、プログラム生成の点字パターン、全角スペース（`U+3000`）を判別できる破線マーカーも備えています。
+**Plemio Nerd** は Nerd Fonts アイコン、継ぎ目のない Powerline セパレータ、隙間のない罫線、点字パターンを収録し、全角スペース（`U+3000`）は破線で表示します。
 
 <p align="center">
   <img src="./docs/images/jp/terminal.png" width="560" alt="Plemio Nerd JP のターミナル表示（Powerline、Nerd アイコン、点字）">
 </p>
 
-### `4` コーディングとターミナルに向けたベースラインと中央揃え調整
+### `4` 縦位置をそろえた記号
 
-単純に複数フォントを合成すると、漢字や記号、アイコンが英数字のコードと縦方向でズレて見えがちです。Plemio は IBM Plex Mono の見分けやすい `0O` と `1lI` の造形を保ちつつ、開発でよく使う文字群ごとにベースラインと視覚的な中央位置を調整しています。
+IBM Plex Mono の見分けやすい `0O` と `1lI` はそのままに、ほかのグリフは欧文のコードと高さがそろうよう配置しています。
 
-- **CJK と欧文の縦位置バランス**：日本語と中国語のグリフをわずかに縦補正し、漢字やかなの視覚中心を欧文に揃えています。ハングルは音節ブロックが中央に収まるよう元の高さを保ち、全角括弧には水平オフセットを加えて余白の偏りを抑えています。
-- **数学軸に揃えた演算子**：`≠`、`≤`、`≥`、`→`、`⇒`、`∈`、`∑` などの記号は IBM Plex Math から取り込み、各ウェイトの線幅に合わせたうえで `=`、`+`、`-` と同じ数学軸に揃えています。
-- **大文字高さの中央に揃えた UI 記号**：矢印や macOS の修飾キー記号（`⌘`、`⌥`、`⌃`、`⇧`、`⏎`）、チェックマーク、星印などは大文字高さの中央に合わせ、コード行の中で浮いたり沈んだりしないようにしています。
-- **行ボックス基準のターミナル記号**：`Plemio Nerd` の Nerd Fonts アイコン、Powerline セパレータ、点字スピナー、全角スペース可視化マーカー（`U+3000`）は行ボックスの高さに合わせて中央配置しており、異なるターミナルエミュレータでも文字の並びになじみます。
+- CJK 文字は欧文の視覚的な中心に合わせています。
+- `≠`、`≤`、`→`、`∑` などの数学記号は IBM Plex Math から取り込み、`=` や `+` と同じ軸にそろえています。
+- 矢印、macOS の修飾キー記号（`⌘`、`⌥`、`⇧`）、チェックマークは大文字の高さの中央に合わせています。
 
 <p align="center">
   <img src="./docs/images/jp/symbols.png" width="600" alt="IBM Plex 調の数字、数学演算子、UI 記号">
@@ -71,7 +71,7 @@ brew install --cask fang2hou/tap/font-plemio-nerd
 
 ### 手動ダウンロード
 
-下のリンクから必要なシリーズと地域の最新アーカイブを直接ダウンロードし、展開した `.ttf` ファイルをインストールしてください。4 つの地域版（`SC`、`TC`、`JP`、`KR`）は収録文字がすべて共通で、標準字形や句読点の位置だけが異なります。用途や好みの表記に合わせて 1 つ選べば十分です。
+下のアーカイブをダウンロードして展開し、`.ttf` ファイルをインストールしてください。4 つの地域版は収録文字が共通で、地域ごとの字形だけが異なるため、1 つ選べば十分です。
 
 | 地域 | Plemio（エディタ向け） | Plemio Nerd（ターミナル向け） |
 | :--- | :--- | :--- |
@@ -80,57 +80,42 @@ brew install --cask fang2hou/tap/font-plemio-nerd
 | 日本語（`JP`） | [Plemio-JP.zip](https://github.com/fang2hou/Plemio/releases/latest/download/Plemio-JP.zip) | [Plemio-Nerd-JP.zip](https://github.com/fang2hou/Plemio/releases/latest/download/Plemio-Nerd-JP.zip) |
 | 韓国語（`KR`） | [Plemio-KR.zip](https://github.com/fang2hou/Plemio/releases/latest/download/Plemio-KR.zip) | [Plemio-Nerd-KR.zip](https://github.com/fang2hou/Plemio/releases/latest/download/Plemio-Nerd-KR.zip) |
 
-複数地域をまとめた `.ttc` パッケージや過去バージョンは [Releases](https://github.com/fang2hou/Plemio/releases) ページで公開しています。
-
-## 🚀 使い分けの目安
-
-- **コードエディタと文書執筆**：`Plemio JP`（または `SC`、`TC`、`KR`）を選ぶと、引き締まった欧文リズムと全角の和文句読点が得られます。
-- **ターミナルとシェルプロンプト**：`Plemio Nerd JP`（または `SC`、`TC`、`KR`）を選ぶと、Nerd Fonts アイコン、Powerline ステータスバー、全角スペースマーカーが記号の重なりなく表示されます。
-
-<details>
-<summary>xterm.js 系ターミナルでの行高調整</summary>
-
-Plemio は IBM Plex Mono と同じ `1.3` の行高を採用しています。VS Code の内蔵ターミナルや Orca など `xterm.js` ベースのターミナルでは、フォントの行高にターミナル側の `lineHeight` 設定が掛け合わされます。フォント既定の行間を保つ場合は `1.0` を、縦の余白を広げて 2x ディスプレイの `14 px` 表示で上下の余白を均等に保つ場合は `1.335` を指定してください。
-
-</details>
+`.ttc` パッケージや過去のバージョンは [Releases](https://github.com/fang2hou/Plemio/releases) ページにあります。
 
 ## 🔤 フォント構成
 
-Plemio は複数の IBM Plex ファミリと補完用シンボルフォントを組み合わせて構成しています。
-
-- **IBM Plex Mono**：欧文、数字、ギリシャ文字、キリル文字、基本記号、罫線文字、ブロック要素
-- **IBM Plex Math**：各ウェイトの線幅に調整した数学演算子、矢印、技術記号
-- **IBM Plex Sans SC / TC / JP / KR**：簡体字中国語、繁体字中国語、日本語（かなと漢字）、韓国語（ハングル）
-- **Nerd Fonts**：`Plemio Nerd` シリーズ向けの開発者アイコンと Powerline セパレータ
-- **Noto Sans Mono と JetBrains Mono**：残りの補助記号の補完
+- **IBM Plex Mono**：欧文、ギリシャ文字、キリル文字、罫線
+- **IBM Plex Math**：数学記号と矢印
+- **IBM Plex Sans SC / TC / JP / KR**：CJK 文字
+- **Nerd Fonts**：`Plemio Nerd` のアイコン
+- **Noto Sans Mono と JetBrains Mono**：その他の記号
 
 ## 🛠️ ソースからのビルド
 
-ソースからビルドするには macOS または Linux に [mise](https://mise.jdx.dev/) が必要です。ツールバージョンはすべて `mise.toml` に固定しています。TTC を生成する `mise run bundle` は、`pnpm dlx` でパッケージャを取得するためネットワーク接続が必要です。
+macOS または Linux に [mise](https://mise.jdx.dev/) が必要です。
 
 ```bash
-mise install          # Python 3.12, uv, Node LTS, pnpm, prek, cocogitto, gitleaks を導入
-mise run setup        # Python 依存パッケージと Git フックをインストール
-mise run fetch        # 固定バージョンの元フォントを取得し sources.lock で検証
-mise run build        # build/fonts に全 128 種の TTF をビルド
-mise run verify-fonts # 文字幅、メタデータ、収録範囲の整合性を検証
-mise run bundle       # 地域別 TTF を build/ttc 以下の TTC にパッケージング
+mise install          # 固定バージョンのツールを導入
+mise run setup        # 依存パッケージと Git フックをインストール
+mise run fetch        # 元フォントを取得
+mise run build        # build/fonts に全フォントをビルド
+mise run verify-fonts # ビルドしたフォントを検証
+mise run bundle       # build/ttc に TTC をパッケージング
 ```
 
-パラメータ調整やプレビュー画像の生成手順は [DEVELOPMENT.md](./DEVELOPMENT.md) を、パイプラインの設計制約は [ARCHITECTURE.md](./ARCHITECTURE.md) を参照してください。
+詳しくは [DEVELOPMENT.md](./DEVELOPMENT.md) と [ARCHITECTURE.md](./ARCHITECTURE.md) を参照してください。
 
 ## 🤝 コントリビューション
 
-Issue の報告や Pull Request を歓迎します。提出前に [CONTRIBUTING.md](./CONTRIBUTING.md) でブランチ運用、Conventional Commits の規約、視覚変更時の確認手順をご確認ください。
+Issue や Pull Request を歓迎します。提出前に [CONTRIBUTING.md](./CONTRIBUTING.md) をご確認ください。
 
 ## 🙏 謝辞
 
-- **PlemoCJK と PlemolJP**：2 シリーズ構成と 4 地域 CJK 対応の着想源となりました（[PlemoCJK](https://github.com/nexustar/PlemoCJK)、[PlemolJP](https://github.com/yuru7/PlemolJP)。Plemio は純 Python パイプラインで一から合成しており、PlemolJP のフォントデータは一切含んでいません）。
-- **IBM Plex**：中核となる Mono、Math、Sans SC / TC / JP / KR を提供しています（[IBM/plex](https://github.com/IBM/plex)）。
-- **Nerd Fonts、Noto Sans Mono、JetBrains Mono**：ターミナルアイコンと補完記号を提供しています（[nerd-fonts](https://github.com/ryanoasis/nerd-fonts)、[Noto](https://github.com/notofonts/latin-greek-cyrillic)、[JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)）。
-- **fontTools、skia-pathops、ttfautohint、otb-ttc-bundle**：グリフ合成、輪郭の太さ調整、欧文ヒンティングの再構築、TTC パッケージングを支えています。
+- [PlemoCJK](https://github.com/nexustar/PlemoCJK)、[PlemolJP](https://github.com/yuru7/PlemolJP)
+- [IBM Plex](https://github.com/IBM/plex)
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)、[Noto](https://github.com/notofonts/latin-greek-cyrillic)、[JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)
 
 ## 📄 ライセンス
 
-- フォントファイル：[OFL-1.1](./OFL.txt)（IBM Plex は予約フォント名「Plex」を定めており、派生フォントでは使用できません。Nerd Fonts アイコンは MIT ライセンスです）
+- フォントファイル：[OFL-1.1](./OFL.txt)（Nerd Fonts アイコンは MIT ライセンス）
 - ビルドコード：[MIT](./LICENSE)
