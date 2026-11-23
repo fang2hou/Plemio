@@ -34,6 +34,7 @@ Project-specific overrides:
 
 - No Python type checker runs in `mise run check`; the guidelines name none for Python.
 - TTC bundling runs `otb-ttc-bundle` through `pnpm dlx`; there is no `package.json`.
+- `mise.toml` uses floating minor/major/LTS tool ranges (`python = "3.15"`, `uv = "latest"`, `node = "lts"`, `pnpm = "12"`, `prek = "0.5"`, `cocogitto = "7"`, `gitleaks = "8"`) instead of exact patch pins so local setups reuse installed versions and CI picks up security patches automatically.
 
 ## Layout
 

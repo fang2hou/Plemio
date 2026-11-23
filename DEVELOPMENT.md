@@ -14,7 +14,7 @@ mise run fetch   # download 59 upstream files into sources/ and verify sources.l
 
 | Tool | Purpose | Managed via |
 | :--- | :--- | :--- |
-| Python 3.12 | Runtime | `mise.toml` |
+| Python 3.15 | Runtime | `mise.toml` |
 | uv | Environments and dependencies (`uv.lock`) | `mise.toml` |
 | ruff | Linting and formatting | `pyproject.toml` (`dev` group) |
 | prek | Git hooks for `mise run check` and commit messages | `mise.toml`, `prek.toml` |
