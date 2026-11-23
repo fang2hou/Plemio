@@ -56,6 +56,21 @@ Plemio는 IBM Plex를 기반으로 제작한 터미널, 코드 에디터, 기술
 
 ## 📦 다운로드 및 설치
 
+### Homebrew
+
+macOS 또는 Linux에서는 [Homebrew](https://brew.sh/)로 바로 설치할 수 있습니다(다른 지역 버전은 `kr` 대신 `sc`, `tc`, `jp`를 지정하세요).
+
+```bash
+brew install --cask fang2hou/tap/font-plemio-kr
+brew install --cask fang2hou/tap/font-plemio-nerd-kr
+
+# 네 지역이 모두 포함된 TTC 컬렉션 설치
+brew install --cask fang2hou/tap/font-plemio
+brew install --cask fang2hou/tap/font-plemio-nerd
+```
+
+### 직접 다운로드
+
 아래 표에서 원하는 시리즈와 지역 버전의 링크를 클릭해 최신 배포 압축 파일을 바로 내려받은 뒤, 압축을 풀고 `.ttf` 파일을 설치하세요. 네 지역 버전(`SC`, `TC`, `JP`, `KR`)은 지원하는 문자 범위가 모두 같으며 지역 표준 자형과 문장부호 위치만 다르므로 사용 습관에 맞는 하나를 선택하면 됩니다.
 
 | 지역 | Plemio (에디터) | Plemio Nerd (터미널) |

@@ -56,6 +56,21 @@ Naive font merges often leave arrows, icons, and CJK characters sitting too high
 
 ## 📦 Download & Install
 
+### Homebrew
+
+Install on macOS or Linux via [Homebrew](https://brew.sh/) (replace `sc` with `tc`, `jp`, or `kr` for another region):
+
+```bash
+brew install --cask fang2hou/tap/font-plemio-sc
+brew install --cask fang2hou/tap/font-plemio-nerd-sc
+
+# Or install all four regions bundled as TTC
+brew install --cask fang2hou/tap/font-plemio
+brew install --cask fang2hou/tap/font-plemio-nerd
+```
+
+### Direct download
+
 Download the standalone archive for the series and region you want directly from the latest release, unzip it, and install the `.ttf` files. All four regional builds (`SC`, `TC`, `JP`, `KR`) share the same character coverage and differ only in regional glyph forms and punctuation placement.
 
 | Region | Plemio (Editors) | Plemio Nerd (Terminals) |
