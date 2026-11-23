@@ -66,6 +66,21 @@ Plemio 是一款基于 IBM Plex 打造的等宽（Monospace）编程字体，适
 
 ## 📦 下载与安装
 
+### Homebrew
+
+在 macOS 或 Linux 上可通过 [Homebrew](https://brew.sh/) 直接安装（如需其他地区版本，将 `sc` 替换为 `tc`、`jp` 或 `kr`）：
+
+```bash
+brew install --cask fang2hou/tap/font-plemio-sc
+brew install --cask fang2hou/tap/font-plemio-nerd-sc
+
+# 或安装包含四地区的 TTC 合集
+brew install --cask fang2hou/tap/font-plemio
+brew install --cask fang2hou/tap/font-plemio-nerd
+```
+
+### 手动下载
+
 点击下方对应版本的直链即可下载最新发布的独立压缩包，解压后安装其中的 `.ttf` 字体文件即可。四个地区版本（`SC`、`TC`、`JP`、`KR`）覆盖的字符完全相同，仅地区标准字形与标点位置有细微差异，按个人书写习惯任选其一即可。
 
 
