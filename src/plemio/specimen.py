@@ -60,9 +60,7 @@ class Theme:
     type_name: str
     string: str
     green: str
-    prompt_a: tuple[str, str]
-    prompt_b: tuple[str, str]
-    prompt_c: tuple[str, str]
+    prompt: tuple[tuple[str, str], ...]
 
 
 LIGHT = Theme(
@@ -78,9 +76,13 @@ LIGHT = Theme(
     type_name="#B45309",
     string="#047857",
     green="#15803D",
-    prompt_a=("#C2410C", "#FFFFFF"),
-    prompt_b=("#B45309", "#FFFFFF"),
-    prompt_c=("#15803D", "#FFFFFF"),
+    prompt=(
+        ("#C2410C", "#FFFFFF"),
+        ("#B45309", "#FFFFFF"),
+        ("#15803D", "#FFFFFF"),
+        ("#0E7490", "#FFFFFF"),
+        ("#475569", "#FFFFFF"),
+    ),
 )
 
 DARK = Theme(
@@ -96,9 +98,13 @@ DARK = Theme(
     type_name="#FCD34D",
     string="#86EFAC",
     green="#86EFAC",
-    prompt_a=("#C45C28", "#FAF6EC"),
-    prompt_b=("#BE8C32", "#FAF6EC"),
-    prompt_c=("#4B7F47", "#FAF6EC"),
+    prompt=(
+        ("#D65D0E", "#FBF1C7"),
+        ("#D79921", "#FBF1C7"),
+        ("#689D6A", "#FBF1C7"),
+        ("#458588", "#FBF1C7"),
+        ("#3C3836", "#FBF1C7"),
+    ),
 )
 
 
@@ -519,11 +525,12 @@ def _editor_commands(region: str, output_path: Path) -> list[dict]:
     return commands
 
 
-def _terminal_commands(region: str, output_path: Path) -> list[dict]:
+def _terminal_commands(config: Config, region: str, output_path: Path) -> list[dict]:
     theme = DARK
     name = "terminal"
     family = f"Plemio Nerd {region}"
     font_size = 14
+    cell = font_size * config.variants["nerd"].half_width / 1000
     line_height = 18.2
     commands, body_as = _window_shell(
         name,
@@ -535,94 +542,63 @@ def _terminal_commands(region: str, output_path: Path) -> list[dict]:
         status_right="Nerd Fonts 3.5.1 / U+3000",
         font_family=family,
     )
+    labels = (
+        "\U000f0035 plemio",
+        "~/src/plemio",
+        "\uf418 main",
+        "\ue73c v3.12",
+        "\uf43a 09:04",
+    )
+    segments = list(zip(labels, theme.prompt, strict=True))
     prompt_as = f"{name}_prompt"
+    prompt_runs: list[tuple[str, str, str]] = []
+    rects: list[tuple[int, int, str]] = []
+    start = 0
+    for idx, (label, (bg, fg)) in enumerate(segments):
+        lead = "" if idx == 0 else " "
+        arrow = start + display_cells(label) + 2 + len(lead)
+        rects.append((start, arrow, bg))
+        prompt_runs += [(f"{lead}{label} ", fg, "Regular"), ("\ue0b0", bg, "Regular")]
+        start = arrow
+    # Each background runs 1px under the next arrow so anti-aliased edges never leave a seam.
     prompt_cmds: list[dict] = [
         {
             "command": "frame.create",
             "as": prompt_as,
             "params": {
                 "parent": {"$ref": body_as},
-                "props": {
-                    "fill": "none",
-                    "layout": "horizontal",
-                    "sizingH": "hug",
-                    "sizingV": "hug",
-                    "gap": 0,
-                    "crossAlign": "center",
-                },
+                "width": (start + 1) * cell,
+                "height": line_height,
+                "props": {"fill": "none", "clipsContent": False},
             },
-        }
+        },
+        *(
+            {
+                "command": "node.create",
+                "params": {
+                    "type": "rectangle",
+                    "parent": {"$ref": prompt_as},
+                    "x": first * cell,
+                    "y": 0,
+                    "width": (last - first) * cell + 1,
+                    "height": line_height,
+                    "props": {"fill": bg},
+                },
+            }
+            for first, last, bg in rects
+        ),
     ]
-    segments = [
-        (" \uf179 Plemio ", theme.prompt_a),
-        (" \uf07c ~/src ", theme.prompt_b),
-        (" \ue0a0 main ", theme.prompt_c),
-    ]
-    for idx, (label, (bg, fg)) in enumerate(segments):
-        seg_as = f"{name}_seg{idx}"
-        next_bg = segments[idx + 1][1][0] if idx + 1 < len(segments) else "none"
-        prompt_cmds.extend(
-            [
-                {
-                    "command": "frame.create",
-                    "as": seg_as,
-                    "params": {
-                        "parent": {"$ref": prompt_as},
-                        "props": {
-                            "fill": bg,
-                            "layout": "horizontal",
-                            "sizingH": "hug",
-                            "sizingV": "hug",
-                            "padding": 0,
-                        },
-                    },
-                },
-                {
-                    "command": "node.create",
-                    "params": {
-                        "type": "text",
-                        "parent": {"$ref": seg_as},
-                        "text": label,
-                        "props": {
-                            "fontFamily": family,
-                            "fontStyle": "Regular",
-                            "fontSize": font_size,
-                            "lineHeight": line_height,
-                            "fill": fg,
-                        },
-                    },
-                },
-                {
-                    "command": "frame.create",
-                    "as": f"{seg_as}_tip",
-                    "params": {
-                        "parent": {"$ref": prompt_as},
-                        "props": {
-                            "fill": next_bg,
-                            "layout": "horizontal",
-                            "sizingH": "hug",
-                            "sizingV": "hug",
-                            "padding": 0,
-                        },
-                    },
-                },
-                {
-                    "command": "node.create",
-                    "params": {
-                        "type": "text",
-                        "parent": {"$ref": f"{seg_as}_tip"},
-                        "text": "\ue0b0",
-                        "props": {
-                            "fontFamily": family,
-                            "fontStyle": "Regular",
-                            "fontSize": font_size,
-                            "lineHeight": line_height,
-                            "fill": bg,
-                        },
-                    },
-                },
-            ]
-        )
+    text_cmds = _styled_text_commands(
+        f"{prompt_as}_text",
+        prompt_as,
+        [prompt_runs],
+        font_family=family,
+        font_size=font_size,
+        line_height=line_height,
+        default_color=theme.text,
+    )
+    text_cmds[0]["params"] |= {"x": cell, "y": 0}
+    prompt_cmds += text_cmds
 
     other_region = _TERMINAL_PAIR.get(region, "JP")
     box_rows = boxed(
@@ -1177,7 +1153,7 @@ def _render_region_specimens(
     commands.extend(_editor_commands(region, outputs["editor"]))
     commands.extend(_weights_commands(region, outputs["weights"]))
     commands.extend(_families_commands(config, region, outputs["families"]))
-    commands.extend(_terminal_commands(region, outputs["terminal"]))
+    commands.extend(_terminal_commands(config, region, outputs["terminal"]))
     commands.extend(_symbols_commands(region, outputs["symbols"]))
 
     with tempfile.TemporaryDirectory() as tmp:
