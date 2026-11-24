@@ -2,7 +2,7 @@ exclude = ["274C"]
 
 [family]
 name = "Plemio"
-version = "0.1.0"
+version = "0.1.1"
 vendor-id = "PLMO"
 copyright = "Copyright 2026 Zhou Fang (https://github.com/fang2hou/Plemio)"
 designer = "Zhou Fang"
