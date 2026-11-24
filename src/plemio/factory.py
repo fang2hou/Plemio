@@ -42,10 +42,14 @@ from plemio.synthetic import (
     ShadeSource,
     SyntheticProvider,
 )
-from plemio.unicode import AmbiguousWidth, is_private_use
+from plemio.unicode import AmbiguousWidth, is_private_use_any_plane
 
 BOX_DRAWING = range(0x2500, 0x2580)
 SOLID_BLOCKS = (range(0x2580, 0x2591), range(0x2594, 0x25A0))
+
+
+def without_private_use(provider: Provider) -> Provider:
+    return Restricted(provider, lambda codepoint: not is_private_use_any_plane(codepoint))
 
 
 class ProviderFactory:
@@ -91,7 +95,7 @@ class ProviderFactory:
         )
         return [
             *self._ideographic_space(),
-            *(Restricted(provider, is_private_use) for provider in nerd_fonts),
+            *(Restricted(provider, is_private_use_any_plane) for provider in nerd_fonts),
             Restricted(cjk, self._variant.cjk_over_latin.__contains__),
             *self._line_art(),
             *(
@@ -124,15 +128,17 @@ class ProviderFactory:
             for name in (self._job.region, *region.fallback)
         ]
 
-    def _cjk(self) -> CjkProvider:
+    def _cjk(self) -> Provider:
         cjk = self._config.cjk
-        return CjkProvider(
-            self._cjk_sources,
-            self.grid,
-            fit=CjkFit(cjk.scale, cjk.ink_margin, cjk.squeeze_aspect),
-            offset=CjkOffset(cjk.y_offset, cjk.y_offset_exempt, cjk.nudges),
-            layout=self.layout,
-            slant=self._slant,
+        return without_private_use(
+            CjkProvider(
+                self._cjk_sources,
+                self.grid,
+                fit=CjkFit(cjk.scale, cjk.ink_margin, cjk.squeeze_aspect),
+                offset=CjkOffset(cjk.y_offset, cjk.y_offset_exempt, cjk.nudges),
+                layout=self.layout,
+                slant=self._slant,
+            )
         )
 
     def _line_art(self) -> list[Provider]:
@@ -164,7 +170,7 @@ class ProviderFactory:
                 providers.append(self._proportional_supplement(supplement))
             else:
                 providers.append(self._monospaced_supplement(supplement))
-        return providers
+        return [without_private_use(provider) for provider in providers]
 
     def _monospaced_supplement(self, supplement: Supplement) -> Provider:
         source_id = supplement.source
