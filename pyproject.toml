@@ -1,6 +1,6 @@
 [project]
 name = "plemio"
-version = "0.1.0"
+version = "0.1.1"
 description = "Build pipeline for Plemio, a 2:1 monospaced CJK programming font based on IBM Plex"
 readme = "README.md"
 license = "MIT"
