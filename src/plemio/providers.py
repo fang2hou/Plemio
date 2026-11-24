@@ -28,7 +28,7 @@ from plemio.unicode import (
     canonical_ideograph,
     is_control,
     is_letter_script,
-    is_private_use,
+    is_private_use_any_plane,
     is_wide,
     is_zero_width,
 )
@@ -255,7 +255,7 @@ class NerdFontsProvider:
         self._font = font
         self._grid = grid
         self._config = config
-        self._em_scale = 1000 / font.units_per_em * config.icon_scale
+        self._em_scale = 1000 / font.units_per_em
         self._source_line = font.line()
         self._reference = font.ink(font.cmap[ord(config.cell_reference)])
 
@@ -266,23 +266,23 @@ class NerdFontsProvider:
         name = self._font.cmap.get(codepoint)
         if name is None or self._reference is None:
             return None
-        advance = self._font.advance(name)
         cell = self._grid.cell_width
         if codepoint in self._config.cell_ranges:
             transform = fit_separator(
                 self._reference,
-                advance=advance,
+                advance=self._font.advance(name),
                 cell_width=cell,
                 em_scale=self._em_scale,
                 line=self._grid.line,
             )
             return Drawn(self._font, name, transform, cell)
-        cells = 1 if is_private_use(codepoint) else self._grid.cells(codepoint)
+        cells = 1 if is_private_use_any_plane(codepoint) else self._grid.cells(codepoint)
         transform = fit_icon(
             self._source_line,
-            advance=advance,
+            self._font.ink(name),
             cell_width=cells * cell,
-            em_scale=self._em_scale,
+            em_scale=self._em_scale * self._config.icon_scale,
+            ink_margin=self._config.ink_margin,
             center_y=self._config.icon_center_y,
         )
         return Drawn(self._font, name, transform, cells * cell)
