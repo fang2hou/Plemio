@@ -116,4 +116,4 @@ On pull requests and pushes to `main`, the **CI** workflow restores or fetches t
 ## Deployment
 
 - The **Fonts** workflow (`workflow_dispatch`) fetches pinned sources, builds all 128 TTFs, validates them with `plemio check`, bundles regional TTCs, and uploads the `plemio-fonts` artifact.
-- The **Release** workflow (triggered by a `v*` tag) runs the same build and verification steps, packages each series and region into a standalone `.zip` archive (`Plemio-{SC,TC,JP,KR}.zip`, `Plemio-Nerd-{SC,TC,JP,KR}.zip`, and TTC bundles) with license files, and publishes them to GitHub Releases.
+- The **Release** workflow (triggered by a `v*` tag) runs the same build and verification steps, packages each series and region into a standalone `.zip` archive (`Plemio-{SC,TC,JP,KR}.zip`, `Plemio-Nerd-{SC,TC,JP,KR}.zip`, and TTC bundles) with license files, publishes them to GitHub Releases, and updates the Homebrew casks in `fang2hou/homebrew-tap`.

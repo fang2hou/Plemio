@@ -141,6 +141,17 @@ jobs:
           merge-multiple: true
       - name: Package release archives
         run: mise run package
+      - name: Record archive checksums
+        run: |
+          mkdir -p build/meta
+          (cd build/dist && sha256sum *.zip) > build/meta/checksums.txt
+      - name: Upload archive checksums
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-checksums
+          path: build/meta/checksums.txt
+          if-no-files-found: error
+          retention-days: 1
       - name: Create draft GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -156,3 +167,76 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
         run: gh release edit "$TAG" --draft=false
+
+  update-homebrew:
+    name: Update Homebrew Tap
+    needs: [publish]
+    if: startsWith(github.repository, 'fang2hou/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download archive checksums
+        uses: actions/download-artifact@v8
+        with:
+          name: release-checksums
+          path: checksums
+      - name: Check out homebrew-tap
+        uses: actions/checkout@v7
+        with:
+          repository: fang2hou/homebrew-tap
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          path: homebrew-tap
+      - name: Update Plemio casks
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          version = os.environ["TAG"].removeprefix("v")
+          checksums: dict[str, str] = {}
+          for line in Path("checksums/checksums.txt").read_text(encoding="utf-8").splitlines():
+              digest, name = line.split()
+              checksums[name] = digest
+
+          casks = sorted(Path("homebrew-tap/Casks").glob("font-plemio*.rb"))
+          if not casks:
+              raise SystemExit("No Plemio cask files found in homebrew-tap/Casks")
+
+          matched: set[str] = set()
+          for cask in casks:
+              text = cask.read_text(encoding="utf-8")
+              url_match = re.search(r'url "https://github\.com/fang2hou/Plemio/releases/download/v#\{version\}/([^"]+)"', text)
+              if url_match is None:
+                  raise SystemExit(f"Could not find release URL in {cask}")
+              archive = url_match.group(1)
+              if archive not in checksums:
+                  raise SystemExit(f"Missing checksum for {archive} referenced by {cask}")
+              matched.add(archive)
+              updated, v_count = re.subn(r'(?m)^(\s*version )"[^"]+"$', rf'\1"{version}"', text)
+              updated, s_count = re.subn(r'(?m)^(\s*sha256 )"[^"]+"$', rf'\1"{checksums[archive]}"', updated)
+              if v_count != 1 or s_count != 1:
+                  raise SystemExit(f"Unexpected version/sha256 lines in {cask}: v={v_count}, s={s_count}")
+              cask.write_text(updated, encoding="utf-8")
+              print(f"updated {cask.name} -> {version} ({checksums[archive][:12]}...)")
+
+          unmatched = set(checksums) - matched
+          if unmatched:
+              raise SystemExit(f"Unmatched release archives without casks: {sorted(unmatched)}")
+          PY
+      - name: Push to homebrew-tap
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          cd homebrew-tap
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/font-plemio*.rb
+          if git diff --cached --quiet; then
+            echo "No cask changes detected, skipping commit."
+            exit 0
+          fi
+          git commit -m "chore: update plemio casks to ${TAG}"
+          git push
