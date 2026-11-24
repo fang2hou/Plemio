@@ -24,7 +24,18 @@ jobs:
         uses: jdx/mise-action@v5
       - name: Install dependencies (uv)
         run: mise run sync
+      - name: Cache pinned sources
+        uses: actions/cache@v6
+        with:
+          path: sources
+          key: sources-${{ hashFiles('sources.lock') }}
+      - name: Fetch pinned sources
+        run: mise run fetch
       - name: Run checks
         run: mise run check
       - name: Run tests
-        run: mise run test
+        run: uv run pytest
+      - name: Build SC Regular variants
+        run: mise run build -- -r SC -s Regular --jobs 2
+      - name: Verify built fonts
+        run: mise run verify-fonts

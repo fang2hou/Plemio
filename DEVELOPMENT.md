@@ -111,6 +111,8 @@ Run `uv run plemio fetch --mode offline` to verify local files against `sources.
 
 `mise run check` is the primary validation entry point and runs the same checks locally and in CI. `mise run verify-fonts` (`plemio check`) validates font invariants across `build/fonts`: glyph advances (`0`, `1`, or `2` cells), ambiguous-width rules, family names, glyph count limits, and required character coverage.
 
+On pull requests and pushes to `main`, the **CI** workflow restores or fetches the pinned sources, runs the full test suite (including `test_build.py`), and builds and verifies both `SC Regular` variants with `plemio check`.
+
 ## Deployment
 
 - The **Fonts** workflow (`workflow_dispatch`) fetches pinned sources, builds all 128 TTFs, validates them with `plemio check`, bundles regional TTCs, and uploads the `plemio-fonts` artifact.
