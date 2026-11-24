@@ -88,8 +88,9 @@ Every design parameter below lives in [`plemio.toml`](./plemio.toml). Rebuild an
 | `symbols.operators`, `symbols.fixed`, `symbols.override` | Ranges centered on the operator axis, ranges kept at their source position, and Plex Mono operators overridden with centered Plex Math glyphs (`∑`, `∫`) |
 | `symbols.ink-margin`, `max-height` | Horizontal padding and height cap when fitting IBM Plex Math symbols |
 | `symbols.emboldened` | Glyphs derived by emboldening another glyph (`✔` from `✓`) |
-| `nerd-fonts.icon-scale`, `icon-center-y` | Scale and vertical center for Nerd Fonts icons |
-| `nerd-fonts.cell-ranges` | Glyphs stretched to fill the line box, such as Powerline separators |
+| `nerd-fonts.icon-scale`, `icon-center-y` | Base scale and vertical center for Nerd Fonts icons, centered by ink inside one cell |
+| `nerd-fonts.ink-margin` | Horizontal padding inside the cell; wider icons scale down to fit |
+| `nerd-fonts.cell-ranges` | Line-box-filling glyphs such as Powerline separators (unaffected by `icon-scale`) |
 | `line-art.block-overhang` | Bleed distance past cell edges for solid block elements |
 | `ideographic-space.*` | Center, box size, stroke width, and dash ratio for the visible `U+3000` marker |
 | `braille.height`, `braille.dot-size` | Braille field height and dot diameter |

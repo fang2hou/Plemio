@@ -118,6 +118,7 @@ class NerdFonts(Model):
     source: str
     icon_scale: float = Field(gt=0)
     icon_center_y: float
+    ink_margin: float = Field(ge=0)
     cell_ranges: Codepoints = CodepointSet()
     cell_reference: str = Field(min_length=1, max_length=1)
 

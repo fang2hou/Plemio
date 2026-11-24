@@ -53,8 +53,9 @@ block-overhang = 50
 
 [nerd-fonts]
 source = "nerd-fonts"
-icon-scale = 1.0
+icon-scale = 0.75
 icon-center-y = 342
+ink-margin = 20
 cell-ranges = ["E0B0-E0D7"]
 cell-reference = "\uE0B0"
 

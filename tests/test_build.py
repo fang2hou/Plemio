@@ -56,6 +56,22 @@ def test_built_font_passes_checks(
             assert abs((glyph.yMin + glyph.yMax) / 2 - expected_y) < 5
 
 
+def test_private_use_glyphs_stay_inside_their_advance(
+    config: Config, built_case_fonts: dict[tuple[str, str], Path]
+) -> None:
+    with TTFont(built_case_fonts["nerd", "SemiBoldItalic"]) as font:
+        cmap, glyf, hmtx = font.getBestCmap(), font["glyf"], font["hmtx"]
+        private_use = [codepoint for codepoint in cmap if is_private_use_any_plane(codepoint)]
+        outside = [
+            codepoint
+            for codepoint in private_use
+            if codepoint not in config.nerd_fonts.cell_ranges
+            and (glyph := glyf[cmap[codepoint]]).numberOfContours
+            and (glyph.xMin < 0 or glyph.xMax > hmtx[cmap[codepoint]][0])
+        ]
+    assert not outside
+
+
 def test_italic_pivot_matches_plex_mono(catalog: SourceCatalog) -> None:
     upright = TTFont(catalog.font("plex-mono", style="Regular"))
     italic = TTFont(catalog.font("plex-mono", style="Italic"))
