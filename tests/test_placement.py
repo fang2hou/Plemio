@@ -19,8 +19,6 @@ from plemio.unicode import CodepointSet
 
 FIT = CjkFit(scale=1.0, ink_margin=40, squeeze_aspect=1.35)
 PIVOT = 380
-ICON_LINE = Box(0, -410, 0, 1638)
-ICON_SCALE = 1000 / 2048 * 0.6
 
 
 def test_full_width_glyph_is_centered_in_two_cells() -> None:
@@ -90,39 +88,10 @@ def test_axis_map_combines_both_axes() -> None:
     assert mapping.transformPoint((300, 300)) == pytest.approx((600, 322))
 
 
-def test_icon_is_centered_by_ink_inside_one_cell() -> None:
-    ink = Box(400, -410, 1936, 1638)
-    transform = fit_icon(
-        ICON_LINE, ink, cell_width=600, em_scale=ICON_SCALE, ink_margin=20, center_y=342
-    )
-    assert transform.transformPoint((ink.center_x, ink.center_y)) == pytest.approx((300, 342))
-    assert transform.transformPoint((ink.x_min, 0))[0] == pytest.approx(75)
-    assert transform.transformPoint((ink.x_max, 0))[0] == pytest.approx(525)
-
-
-def test_overwide_icon_is_scaled_down_to_the_cell_budget() -> None:
-    ink = Box(0, -410, 4096, 1638)
-    transform = fit_icon(
-        ICON_LINE, ink, cell_width=600, em_scale=ICON_SCALE, ink_margin=20, center_y=342
-    )
-    assert transform.transformPoint((ink.x_min, ink.y_min)) == pytest.approx((20, 202))
-    assert transform.transformPoint((ink.x_max, ink.y_max)) == pytest.approx((580, 482))
-
-
-def test_narrow_icon_keeps_the_base_scale() -> None:
-    ink = Box(512, -410, 1536, 1638)
-    transform = fit_icon(
-        ICON_LINE, ink, cell_width=600, em_scale=ICON_SCALE, ink_margin=20, center_y=342
-    )
-    assert transform.transformPoint((ink.x_min, ink.y_min)) == pytest.approx((150, 42))
-    assert transform.transformPoint((ink.x_max, ink.y_max)) == pytest.approx((450, 642))
-
-
-def test_blank_icon_keeps_identity() -> None:
-    transform = fit_icon(
-        ICON_LINE, None, cell_width=600, em_scale=ICON_SCALE, ink_margin=20, center_y=342
-    )
-    assert transform == Identity
+def test_wide_icon_centers_over_two_cells() -> None:
+    line = Box(0, -410, 0, 1638)
+    transform = fit_icon(line, advance=1800, cell_width=600, em_scale=1000 / 2048, center_y=342)
+    assert transform.transformPoint((900, line.center_y)) == pytest.approx((600, 342))
 
 
 def test_separator_fills_the_line_box() -> None:
