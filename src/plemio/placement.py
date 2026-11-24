@@ -165,21 +165,15 @@ def fit_mark(y_offset: float) -> Transform:
 
 def fit_icon(
     source_line: Box,
-    ink: Box | None,
     *,
+    advance: int,
     cell_width: int,
     em_scale: float,
-    ink_margin: float,
     center_y: float,
 ) -> Transform:
-    if ink is None:
-        return Identity
-    budget = cell_width - 2 * ink_margin
-    scale = em_scale
-    if ink.width * scale > budget:
-        scale = budget / ink.width
-    dx = cell_width / 2 - scale * ink.center_x
-    return Identity.translate(dx, center_y).scale(scale).translate(0, -source_line.center_y)
+    cells = 1 if advance * em_scale <= cell_width else 2
+    dx = (cells * cell_width - advance * em_scale) / 2
+    return Identity.translate(dx, center_y).scale(em_scale).translate(0, -source_line.center_y)
 
 
 def fit_separator(
