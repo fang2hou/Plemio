@@ -9,7 +9,7 @@ Plemio is a batch font-composition pipeline. For each variant, region, and style
 - **cli, pipeline, jobs**: command-line entry points, parallel worker orchestration, and the `variant × region × style` build matrix.
 - **config, sources**: typed `plemio.toml` schema (`Pydantic`) and HTTPS source downloads verified by SHA-256 against `sources.lock`.
 - **factory**: builds the ordered provider stack for one build job from configuration.
-- **providers**: codepoint resolution for native Plex Mono glyphs, CJK fonts with regional fallback, monospaced supplements, line art, and Nerd Fonts.
+- **providers**: codepoint resolution for native Plex Mono glyphs, CJK fonts with regional fallback, monospaced supplements, line art, and Nerd Fonts; only Nerd Fonts supplies private-use codepoints.
 - **symbols, weights**: proportional IBM Plex Math fitting with topology-preserving `skia-pathops` outline offsets and emboldened derived glyphs.
 - **synthetic**: generated braille patterns, shade blocks, and the visible ideographic space marker (`U+3000`).
 - **placement, measure**: pure 2D grid geometry and reference glyph measurements.

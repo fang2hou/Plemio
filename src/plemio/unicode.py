@@ -68,6 +68,11 @@ def is_private_use(codepoint: int) -> bool:
     return codepoint in PRIVATE_USE_AREA
 
 
+def is_private_use_any_plane(codepoint: int) -> bool:
+    """Private use on any plane, unlike the BMP-only ``is_private_use``."""
+    return unicodedata.category(chr(codepoint)) == "Co"
+
+
 def east_asian_width(codepoint: int) -> str:
     return unicodedata.east_asian_width(chr(codepoint))
 

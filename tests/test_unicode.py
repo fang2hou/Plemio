@@ -4,6 +4,8 @@ from plemio.unicode import (
     CodepointSet,
     allowed_cells,
     canonical_ideograph,
+    is_private_use,
+    is_private_use_any_plane,
     is_zero_width,
 )
 
@@ -43,3 +45,12 @@ def test_allowed_cells_by_policy() -> None:
     assert allowed_cells(0x2460, AmbiguousWidth.WIDE) == {1, 2}
     assert allowed_cells(0x03B1, AmbiguousWidth.WIDE) == {1}
     assert allowed_cells(0xE000, AmbiguousWidth.NARROW) == {1, 2}
+
+
+def test_private_use_any_plane_covers_all_three_areas() -> None:
+    private = (0xE000, 0xF8FF, 0xF0000, 0xFFFFD, 0x100000, 0x10FFFD)
+    public = (0xDFFF, 0xF900, 0xEFFFF, 0xFFFFE, 0x10FFFE)
+    assert all(is_private_use_any_plane(codepoint) for codepoint in private)
+    assert not any(is_private_use_any_plane(codepoint) for codepoint in public)
+    assert is_private_use(0xE000)
+    assert not is_private_use(0xF0000)
